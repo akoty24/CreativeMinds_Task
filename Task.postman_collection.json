@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "49c67976-21e7-4b5d-8357-d10b05bac0bb",
+		"name": "Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "17933149"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "mohamed",
+									"type": "text"
+								},
+								{
+									"key": "mobile_number",
+									"value": "+2010274015686",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "postman-cloud:///1ef024f9-cb6c-43b0-a24f-af93f00ceba0"
+								},
+								{
+									"key": "location[latitude]",
+									"value": "30.164958",
+									"type": "text"
+								},
+								{
+									"key": "location[longitude]",
+									"value": "31.209113",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "user",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{url}}/register"
+					},
+					"response": []
+				},
+				{
+					"name": "verify-otp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mobile_number",
+									"value": "+201027401686",
+									"type": "text"
+								},
+								{
+									"key": "verification_code",
+									"value": "376116",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{url}}/verify-otp"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mobile_number",
+									"value": "+201027401686",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{url}}/login"
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzEzOTg0MDIxLCJleHAiOjE3MTM5ODc2MjEsIm5iZiI6MTcxMzk4NDAyMSwianRpIjoiUGV4WHhBOFBKeE9xOHZsSSIsInN1YiI6IjI1IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.GzJnmQicvVALm-_3dfeWhuAEX5dJadDwokkwzDNuTcg"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/profile"
+					},
+					"response": []
+				},
+				{
+					"name": "nearest-representatives",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/nearest-representatives?location[latitude]=30.164958&location[longitude]=31.209113",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"nearest-representatives"
+							],
+							"query": [
+								{
+									"key": "location[latitude]",
+									"value": "30.164958"
+								},
+								{
+									"key": "location[longitude]",
+									"value": "31.209113"
+								},
+								{
+									"key": "longitude   ",
+									"value": "31.209113",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://127.0.0.1:8000/api",
+			"type": "string"
+		}
+	]
+}
